@@ -1,17 +1,17 @@
-# KG-TREAT: Knowledge Graph Enhanced Pre-training for Treatment Effect Estimation
+# KG-TREAT: Pre-training for Treatment Effect Estimation by Synergizing Patient Data with Knowledge Graphs
 
 ## Introduction
-Code for paper "KG-TREAT: Knowledge Graph Enhanced Pre-training for Treatment Effect Estimation"
+Code for paper "KG-TREAT: Pre-training for Treatment Effect Estimation by Synergizing Patient Data with Knowledge Graphs".
 
-In this paper, we propose for the first time, a Knowledge Graph enhanced pre-training for TEE - namely KG-TREAT, a novel pre-training and fine-tuning framework that leverages both large-scale observational patient data and biomedical knowledge graphs (KGs). Specifically, KG-TREAT first extracts personalized subgraphs for each patient based on their observational covariates, then pre-trains the model on pairs of patient data and extracted KG subgraphs, and fine-tunes it on labeled data for TEE.
+In this paper, we introduce a novel pre-training and fine-tuning framework, KG-TREAT, which synergizes large-scale observational patient data with biomedical knowledge graphs (KGs) to enhance TEE. Unlike previous approaches, KG-TREAT constructs *dual-focus* KGs and integrates a deep bi-level attention synergy method for in-depth information fusion, enabling distinct encoding of treatment-covariate and outcome-covariate relationships. KG-TREAT also incorporates two pre-training tasks to ensure a thorough grounding and contextualization of patient data and KGs.
 
 <img src="pipeline.png" title="The overall pipeline of KG-TREAT.">
 
-We obtain and preprocess 3M large-scale observational data ([MarketScan Research
-Databases](https://www.ibm.com/products/marketscan-research-databases)), and relevant subgraphs from biomedical KGs ([UMLS](https://www.nlm.nih.gov/research/umls/index.html)) with 300K nodes and 1M edges as our pre-training data. We derive 4 downstream TEE tasks (10-20K patient samples) for evaluating the comparative treatment effectiveness for patients with coronary artery disease (CAD).
+We obtain and preprocess 3M large-scale observational patient data from [MarketScan Research
+Databases](https://www.ibm.com/products/marketscan-research-databases), and construct KGs from [Unified Medical Language System (UMLS)](https://www.nlm.nih.gov/research/umls/index.html) with 300K nodes and 1M edges as our pre-training data. We derive 4 downstream TEE tasks (10-20K patient samples) for evaluating the comparative treatment effectiveness in reducing stroke and myocardial infarction risk for patients with coronary artery disease (CAD).
 
 ## Requirements
-Create virtual environment and install the required dependencies by running the commands:
+Create a virtual environment and install the required dependencies by running the commands:
 ```bash
 conda create -n kgtreat python=3.7
 conda activate kgtreat
